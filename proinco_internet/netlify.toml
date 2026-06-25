@@ -1,8 +1,0 @@
-[build]
-  publish = "proinco_internet"
-  functions = "proinco_internet/netlify/functions"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
