@@ -62,7 +62,7 @@ CONTATTI AZIENDA:
 - Tel/WhatsApp: +39 351 735 8959
 - Email: info@proincoenergy.it
 - Sede: Vittorio Veneto (TV)
-- Zona: Nord Italia e Roma
+- Zona: Veneto, Nord Italia e Roma
 
 Rispondi SEMPRE in italiano. Messaggi brevi e conversazionali come WhatsApp, non lunghi elenchi.`,
         messages
