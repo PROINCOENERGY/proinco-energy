@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PROINCO ENERGY</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--navy:#1a2b45;--navy2:#243553;--black:#111820;--blue:#2563a8;--lightblue:#e8f0fb;--text:#1a2233;--muted:#5a6a82;--light:#f4f6fb;--wa:#25D366;--wa-dark:#128C7E}
+  body{font-family:'Segoe UI',sans-serif;background:#fff;color:var(--text);overflow-x:hidden}
+
+  nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo-text{color:#fff;font-size:17px;font-weight:700;letter-spacing:.5px}
+  .logo-sub{color:#8aa5cc;font-size:11px;letter-spacing:1px;display:block;margin-top:-2px}
+  nav ul{list-style:none;display:flex;gap:1.4rem}
+  nav ul li a{color:#b0c4de;text-decoration:none;font-size:13px;transition:color .2s}
+  nav ul li a:hover{color:#fff}
+  .nav-cta{background:var(--blue);color:#fff!important;padding:7px 18px;border-radius:6px;font-size:13px!important}
+
+  .hero{background:linear-gradient(135deg,var(--black) 0%,var(--navy) 60%,var(--navy2) 100%);padding:5rem 2rem 4rem;display:flex;align-items:center;gap:3rem;min-height:500px}
+  .hero-left{flex:1;max-width:600px}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(37,99,168,.25);color:#7ab4f5;font-size:12px;font-weight:600;letter-spacing:1.5px;padding:5px 14px;border-radius:20px;margin-bottom:1.5rem;border:1px solid rgba(37,99,168,.5)}
+  .hero h1{color:#fff;font-size:2.9rem;font-weight:800;line-height:1.13;margin-bottom:1rem}
+  .hero h1 span{color:#5b9bd5}
+  .hero p{color:#8aa5cc;font-size:1.05rem;line-height:1.75;margin-bottom:2rem}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+  .btn-primary{background:var(--blue);color:#fff;padding:13px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:background .2s}
+  .btn-primary:hover{background:#1e4f8c}
+  .btn-outline{border:1.5px solid rgba(255,255,255,.25);color:#fff;padding:13px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;background:transparent;cursor:pointer;transition:all .2s}
+  .btn-outline:hover{border-color:#5b9bd5}
+  .hero-right{flex:0 0 300px;display:flex;flex-direction:column;gap:12px}
+  .stat-card{background:rgba(255,255,255,.07);border:1px solid rgba(91,155,213,.2);border-radius:12px;padding:16px 20px}
+  .stat-num{font-size:1.7rem;font-weight:800;color:#5b9bd5}
+  .stat-label{font-size:12px;color:#8aa5cc;margin-top:3px;line-height:1.4}
+
+  section{padding:4rem 2rem}
+  .section-label{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--blue);text-transform:uppercase;margin-bottom:.5rem}
+  .section-title{font-size:2rem;font-weight:800;margin-bottom:.75rem;line-height:1.2}
+  .section-sub{color:var(--muted);font-size:1rem;line-height:1.75;max-width:560px;margin-bottom:2.5rem}
+
+  .services-bg{background:var(--light)}
+  .full-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+  .big-card{background:#fff;border-radius:16px;padding:2rem;border:1.5px solid #dde6f5;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s}
+  .big-card:hover{box-shadow:0 10px 36px rgba(26,43,69,.12);transform:translateY(-3px)}
+  .big-card.featured{border-color:var(--blue);background:linear-gradient(135deg,#f0f6ff,#fff)}
+  .card-accent{position:absolute;top:0;left:0;width:4px;height:100%;background:var(--blue);border-radius:4px 0 0 4px}
+  .card-icon{width:52px;height:52px;border-radius:12px;background:var(--lightblue);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:1.25rem}
+  .big-card h3{font-size:1.15rem;font-weight:800;margin-bottom:.5rem;color:var(--navy)}
+  .big-card p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+  .card-features{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .card-features li{font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px}
+  .card-features li::before{content:'✓';color:var(--blue);font-weight:800;font-size:12px}
+  .card-tag{display:inline-block;margin-top:1rem;background:var(--lightblue);color:var(--blue);font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:.5px}
+
+  .manu-section{background:var(--navy);color:#fff;padding:4rem 2rem}
+  .manu-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+  .manu-left h2{font-size:2rem;font-weight:800;margin-bottom:1rem;line-height:1.2}
+  .manu-left h2 span{color:#5b9bd5}
+  .manu-left p{color:#8aa5cc;font-size:.95rem;line-height:1.75;margin-bottom:1.5rem}
+  .manu-cards{display:flex;flex-direction:column;gap:12px}
+  .manu-item{background:rgba(255,255,255,.07);border:1px solid rgba(91,155,213,.2);border-radius:12px;padding:14px 18px;display:flex;gap:14px;align-items:flex-start}
+  .manu-num{min-width:32px;height:32px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0}
+  .manu-item h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+  .manu-item p{font-size:12.5px;color:#8aa5cc;line-height:1.5}
+
+  .team-banner{background:var(--light);padding:3rem 2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;border-top:1px solid #dde6f5;border-bottom:1px solid #dde6f5}
+  .team-img{width:80px;height:80px;border-radius:16px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+  .team-text h3{font-size:1.3rem;font-weight:800;margin-bottom:.3rem}
+  .team-text p{color:var(--muted);font-size:.95rem;line-height:1.6}
+  .team-pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
+  .pill{background:var(--lightblue);color:var(--blue);font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px}
+
+  .contatti{background:var(--light)}
+  .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+  .contact-info{display:flex;flex-direction:column;gap:1.25rem}
+  .c-item{display:flex;gap:14px;align-items:flex-start}
+  .c-dot{width:42px;height:42px;background:var(--lightblue);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;margin-top:2px}
+  .c-item h4{font-size:12px;color:var(--muted);font-weight:400;margin-bottom:2px}
+  .c-item p{font-size:14px;font-weight:600;line-height:1.5}
+  .c-item a{color:var(--blue);text-decoration:none;font-weight:600;font-size:14px}
+  .urgency-box{background:var(--lightblue);border:1.5px solid #bdd5f0;border-radius:12px;padding:1.25rem 1.5rem;margin-top:.5rem}
+  .urgency-box h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+  .urgency-box p{font-size:13px;color:var(--muted);margin-bottom:10px}
+  form{background:#fff;border-radius:14px;padding:1.75rem;border:1px solid #dde6f5;display:flex;flex-direction:column;gap:12px}
+  form input,form textarea,form select{width:100%;padding:10px 14px;border:1.5px solid #dde6f5;border-radius:8px;font-size:14px;font-family:inherit;transition:border-color .2s;outline:none;color:var(--text);background:#fff}
+  form input:focus,form textarea:focus,form select:focus{border-color:var(--blue)}
+  form textarea{resize:vertical;min-height:90px}
+  form label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  .privacy-check{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--muted);line-height:1.5}
+  .privacy-check input[type=checkbox]{width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--blue)}
+  .privacy-check a{color:var(--blue);text-decoration:underline;cursor:pointer}
+
+  footer{background:var(--navy);color:#8aa5cc;padding:2.5rem 2rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:start}
+  .foot-col h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:.75rem}
+  .foot-col p,.foot-col a{font-size:13px;color:#8aa5cc;text-decoration:none;line-height:1.8;display:block}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{background:#111820;padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+  .foot-bottom p{font-size:12px;color:#5a6a82}
+  .foot-bottom a{font-size:12px;color:#5a6a82;text-decoration:underline;cursor:pointer}
+
+  #wa-btn{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s}
+  #wa-btn:hover{transform:scale(1.08)}
+  #wa-btn svg{width:30px;height:30px;fill:#fff}
+  #wa-bubble{display:none;position:fixed;bottom:100px;right:28px;z-index:9999;width:320px;background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.18);overflow:hidden}
+  #wa-bubble.open{display:block}
+  .wa-header{background:var(--wa-dark);padding:14px 18px;display:flex;align-items:center;gap:12px}
+  .wa-avatar{width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .wa-header-text h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:2px}
+  .wa-header-text p{color:rgba(255,255,255,.75);font-size:12px}
+  .wa-close{margin-left:auto;color:#fff;cursor:pointer;font-size:20px;line-height:1;opacity:.8}
+  .wa-close:hover{opacity:1}
+  .wa-body{padding:16px;background:#e5ddd5}
+  .wa-msg{background:#fff;border-radius:0 10px 10px 10px;padding:10px 14px;font-size:13px;color:#111;line-height:1.6;box-shadow:0 1px 2px rgba(0,0,0,.1);margin-bottom:8px;position:relative}
+  .wa-msg::before{content:'';position:absolute;top:0;left:-8px;border:8px solid transparent;border-right-color:#fff;border-top:0}
+  .wa-time{font-size:11px;color:#999;text-align:right;margin-top:4px}
+  .wa-footer{padding:12px 16px;border-top:1px solid #f0f0f0;background:#fff}
+  .wa-footer p{font-size:12px;color:var(--muted);margin-bottom:8px}
+  .wa-topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .wa-topic{background:var(--lightblue);color:var(--blue);font-size:12px;padding:4px 12px;border-radius:20px;cursor:pointer;border:1px solid #bdd5f0;transition:background .2s}
+  .wa-topic:hover{background:#d0e5f8}
+  .wa-send-btn{width:100%;background:var(--wa);color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+  .wa-send-btn svg{width:18px;height:18px;fill:#fff}
+
+  #privacy-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:99999;align-items:center;justify-content:center}
+  #privacy-overlay.open{display:flex}
+  #privacy-modal{background:#fff;border-radius:16px;max-width:640px;width:90%;max-height:80vh;overflow:hidden;display:flex;flex-direction:column}
+  .priv-header{background:var(--navy);padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+  .priv-header h2{color:#fff;font-size:15px;font-weight:700}
+  .priv-close{color:#fff;cursor:pointer;font-size:22px;opacity:.8}
+  .priv-close:hover{opacity:1}
+  .priv-body{padding:24px;overflow-y:auto;font-size:13.5px;line-height:1.8;color:var(--text)}
+  .priv-body h3{font-size:14px;font-weight:700;color:var(--navy);margin:1.2rem 0 .4rem}
+  .priv-body h3:first-child{margin-top:0}
+  .priv-body p{margin-bottom:.6rem;color:#444}
+  .priv-body ul{margin-left:1.2rem;margin-bottom:.6rem}
+  .priv-body ul li{margin-bottom:.3rem}
+  .priv-footer{padding:14px 24px;border-top:1px solid #eee;display:flex;justify-content:flex-end}
+
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99999;overflow-y:auto;padding:2rem 1rem}
+  .modal-box{max-width:860px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.3)}
+  .modal-header{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
+  .modal-header div .lbl{font-size:11px;font-weight:700;letter-spacing:2px;color:#5b9bd5;text-transform:uppercase;margin-bottom:.4rem}
+  .modal-header h2{color:#fff;font-size:1.8rem;font-weight:800;margin:0}
+  .modal-header p{color:#8aa5cc;font-size:.9rem;margin-top:.5rem}
+  .modal-close{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .modal-body{padding:2rem 2.5rem;display:flex;flex-direction:column;gap:2rem}
+  .modal-section-title{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem}
+  .modal-section-icon{width:36px;height:36px;background:var(--lightblue);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+  .modal-section-title h3{font-size:1.1rem;font-weight:800;color:var(--navy);margin:0}
+  .svc-block{background:var(--light);border-radius:14px;padding:1.5rem;margin-bottom:1rem}
+  .svc-block h4{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:.5rem}
+  .svc-block p{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:.75rem}
+  .svc-ul{list-style:none;padding:0;margin:0 0 .75rem;display:flex;flex-direction:column;gap:5px}
+  .svc-ul li{font-size:.85rem;color:var(--text);display:flex;gap:8px}
+  .modal-cta{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:16px;padding:2rem;text-align:center}
+  .modal-cta h3{color:#fff;font-size:1.2rem;font-weight:800;margin-bottom:.5rem}
+  .modal-cta p{color:#8aa5cc;font-size:.9rem;margin-bottom:1.25rem}
+  .modal-cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .btn-wa{background:var(--wa);color:#fff;border:none;border-radius:8px;padding:13px 24px;font-size:14px;font-weight:700;cursor:pointer}
+
+  @media(max-width:700px){
+    .hero{flex-direction:column;padding:3rem 1.5rem}
+    .hero h1{font-size:2rem}
+    .hero-right{flex:none;width:100%}
+    .manu-inner,.contact-wrap{grid-template-columns:1fr}
+    footer{grid-template-columns:1fr}
+    nav ul{display:none}
+    #wa-bubble{width:calc(100vw - 40px);right:20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div style="width:72px;height:72px;border-radius:50%;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+      <svg width="68" height="68" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke="#29aadf" stroke-width="10" stroke-dasharray="400 100" stroke-linecap="round" d="M100 10 A90 90 0 1 1 10 100 A90 90 0 0 1 100 10"/>
+        <path fill="none" stroke="#7ed321" stroke-width="9" stroke-linecap="round" d="M170 140 A90 90 0 0 1 30 140 Q50 185 100 188 Q150 185 170 140Z"/>
+        <path fill="none" stroke="#a8e063" stroke-width="7" stroke-linecap="round" d="M15 110 Q10 160 40 178"/>
+        <rect x="30" y="128" width="140" height="10" rx="3" fill="#29aadf"/>
+        <rect x="30" y="113" width="140" height="10" rx="3" fill="#3bbfef"/>
+        <line x1="55" y1="110" x2="43" y2="138" stroke="#1a8fc0" stroke-width="3"/>
+        <line x1="80" y1="110" x2="68" y2="138" stroke="#1a8fc0" stroke-width="3"/>
+        <line x1="105" y1="110" x2="93" y2="138" stroke="#1a8fc0" stroke-width="3"/>
+        <line x1="130" y1="110" x2="118" y2="138" stroke="#1a8fc0" stroke-width="3"/>
+        <line x1="155" y1="110" x2="143" y2="138" stroke="#1a8fc0" stroke-width="3"/>
+        <path d="M118 118 A30 30 0 0 1 178 118Z" fill="url(#sunG)"/>
+        <defs><radialGradient id="sunG" cx="50%" cy="100%"><stop offset="0%" stop-color="#f5a623"/><stop offset="100%" stop-color="#f06b00"/></radialGradient></defs>
+        <line x1="148" y1="76" x2="148" y2="68" stroke="#f5d020" stroke-width="4" stroke-linecap="round"/>
+        <line x1="168" y1="85" x2="174" y2="79" stroke="#f5d020" stroke-width="4" stroke-linecap="round"/>
+        <line x1="177" y1="105" x2="185" y2="105" stroke="#f5d020" stroke-width="4" stroke-linecap="round"/>
+        <line x1="128" y1="85" x2="122" y2="79" stroke="#f5d020" stroke-width="4" stroke-linecap="round"/>
+        <line x1="85" y1="60" x2="85" y2="130" stroke="#29aadf" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="85" cy="60" r="4" fill="#1a8fc0"/>
+        <path d="M85 56 L80 30 Q84 28 88 30Z" fill="#29aadf"/>
+        <path d="M85 56 L108 68 Q107 73 104 72Z" fill="#3bbfef"/>
+        <path d="M85 56 L62 68 Q61 63 63 60Z" fill="#3bbfef"/>
+        <line x1="58" y1="78" x2="58" y2="128" stroke="#29aadf" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="58" cy="78" r="3" fill="#1a8fc0"/>
+        <path d="M58 75 L54 54 Q57 52 61 54Z" fill="#29aadf"/>
+        <path d="M58 75 L78 85 Q77 89 74 88Z" fill="#3bbfef"/>
+        <path d="M58 75 L38 85 Q37 81 39 78Z" fill="#3bbfef"/>
+        <path d="M105 145 Q130 110 175 118 Q155 158 115 155 Q108 154 105 145Z" fill="#7ed321" opacity=".9"/>
+        <path d="M105 145 Q138 135 175 118" fill="none" stroke="#5aad1a" stroke-width="2"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-text">PROINCO ENERGY</div>
+      <span class="logo-sub">ENERGIA A 360°</span>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#servizi">Impianti</a></li>
+    <li><a href="#manutenzione">Manutenzione</a></li>
+    <li><a href="#partner">Partner</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+    <li><a href="#contatti" class="nav-cta">Richiedi Intervento</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">⚡ Impianti Elettrici & Idraulici – Chiavi in Mano</div>
+    <h1>Installiamo.<br/>Manteniamo.<br/><span>Garantiamo.</span></h1>
+    <p>Impianti elettrici e idraulici realizzati a regola d'arte, con assistenza e manutenzione post-vendita continua. Un unico partner affidabile per tutta la vita del tuo impianto.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Richiedi Intervento</button>
+      <button class="btn-outline" onclick="document.getElementById('servizi').scrollIntoView({behavior:'smooth'})">I Nostri Servizi ↓</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-card"><div class="stat-num">Chiavi in mano</div><div class="stat-label">Progettazione, installazione e collaudo inclusi</div></div>
+    <div class="stat-card"><div class="stat-num">Post-vendita</div><div class="stat-label">Manutenzione programmata e assistenza rapida</div></div>
+    <div class="stat-card"><div class="stat-num">360°</div><div class="stat-label">Elettrico · Idraulico · Fotovoltaico · Fondi EU</div></div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="services-bg" id="servizi">
+  <div class="section-label">Cosa facciamo</div>
+  <div class="section-title">I nostri servizi</div>
+  <div class="section-sub">Ogni impianto progettato su misura, realizzato con materiali certificati e seguito nel tempo.</div>
+  <div class="full-grid">
+
+    <!-- ELETTRICO -->
+    <div class="big-card featured" onclick="openElettrico()" style="cursor:pointer" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(37,99,168,.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div class="card-accent"></div><div class="card-icon">⚡</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+        <h3 style="margin-bottom:0">Impianti Elettrici</h3>
+        <span style="background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px">Scopri →</span>
+      </div>
+      <p>Dalla tua casa al capannone industriale: progettiamo e installiamo impianti elettrici sicuri, a norma e su misura. <strong>Clicca per scoprire tutti i servizi.</strong></p>
+      <ul class="card-features"><li>Domotica & Smart Home</li><li>Quadri Elettrici Industriali</li><li>Sistemi Antincendio & Videosorveglianza</li><li>Progettazione & Certificazioni DiCo</li></ul>
+      <span class="card-tag">CIVILE · INDUSTRIALE · PA</span>
+    </div>
+
+    <!-- IDRAULICO -->
+    <div class="big-card featured" onclick="openIdraulico()" style="cursor:pointer" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(37,99,168,.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div class="card-accent"></div><div class="card-icon">💧</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+        <h3 style="margin-bottom:0">Impianti Idraulici</h3>
+        <span style="background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px">Scopri →</span>
+      </div>
+      <p>Dal bagno al riscaldamento industriale: realizziamo impianti idraulici e termici sicuri, efficienti e su misura. <strong>Clicca per scoprire tutti i servizi.</strong></p>
+      <ul class="card-features"><li>Impianti idrosanitari completi</li><li>Riscaldamento a pavimento e radiatori</li><li>Pompe di calore e caldaie a condensazione</li><li>Trattamento acque e filtri</li></ul>
+      <span class="card-tag">CIVILE · INDUSTRIALE</span>
+    </div>
+
+    <!-- FOTOVOLTAICO -->
+    <div class="big-card featured" onclick="openFotovoltaico()" style="cursor:pointer" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(37,99,168,.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div class="card-accent"></div><div class="card-icon">☀️</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+        <h3 style="margin-bottom:0">Fotovoltaico, BESS & Domotica</h3>
+        <span style="background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px">Scopri →</span>
+      </div>
+      <p>Produce energia, accumula e gestisci tutto da smartphone. <strong>Clicca per scoprire tutti i servizi.</strong></p>
+      <ul class="card-features"><li>Impianti fotovoltaici su misura</li><li>Accumulo BESS di ultima generazione</li><li>Domotica integrata</li><li>Monitoraggio remoto</li></ul>
+      <span class="card-tag">RESIDENZIALE · AZIENDALE</span>
+    </div>
+
+    <!-- LATTONERIA -->
+    <div class="big-card featured" onclick="openLattoneria()" style="cursor:pointer" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(37,99,168,.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div class="card-accent"></div><div class="card-icon">🏗️</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+        <h3 style="margin-bottom:0">Lattoneria & Coperture</h3>
+        <span style="background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px">Scopri →</span>
+      </div>
+      <p>Coperture e grondaie realizzate con materiali di qualità e lavorazione artigianale. <strong>Clicca per scoprire tutti i servizi.</strong></p>
+      <ul class="card-features"><li>Rifacimento coperture piane e inclinate</li><li>Grondaie in rame, alluminio, zinco</li><li>Impermeabilizzazioni e guaine</li><li>Manutenzione ordinaria e straordinaria</li></ul>
+      <span class="card-tag">RESIDENZIALE · COMMERCIALE</span>
+    </div>
+
+    <!-- PRATICHE -->
+    <div class="big-card featured" onclick="openPratiche()" style="cursor:pointer" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(37,99,168,.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div class="card-accent"></div><div class="card-icon">📋</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+        <h3 style="margin-bottom:0">Pratiche GSE, ENEA & Comune</h3>
+        <span style="background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px">Scopri →</span>
+      </div>
+      <p>Burocrazia zero stress: gestiamo tutte le pratiche al posto tuo. <strong>Clicca per scoprire come.</strong></p>
+      <ul class="card-features"><li>Pratiche GSE per fotovoltaico</li><li>Comunicazioni ENEA per detrazioni</li><li>CILA, SCIA e pratiche comunali</li><li>Aggiornamento catastale</li></ul>
+      <span class="card-tag">TUTTO INCLUSO</span>
+    </div>
+
+    <!-- FONDI -->
+    <div class="big-card featured" onclick="openFondi()" style="cursor:pointer" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(37,99,168,.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div class="card-accent"></div><div class="card-icon">🇪🇺</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+        <h3 style="margin-bottom:0">Fondi Europei</h3>
+        <span style="background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px">Scopri →</span>
+      </div>
+      <p>PNRR, Conto Termico, detrazioni fiscali: ti aiutiamo ad accedere ai finanziamenti che meriti. <strong>Clicca per scoprire come.</strong></p>
+      <ul class="card-features"><li>Conto Termico 3.0</li><li>Detrazioni 50%</li><li>Bandi regionali Nord Italia</li><li>Incentivi per Hotel, PA e Imprese</li></ul>
+      <span class="card-tag">CONSULENZA GRATUITA</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEZIONE NEWS / INCENTIVI -->
+<section style="background:var(--light);padding:4rem 2rem" id="news">
+  <div class="section-label">Aggiornamenti</div>
+  <div class="section-title">News & Incentivi</div>
+  <div class="section-sub">Rimani aggiornato sugli ultimi incentivi, bandi e novità del settore energetico. Aggiorneremo questa sezione ogni volta che ci sono nuove opportunità per te.</div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem" id="news-grid">
+
+    <!-- NEWS 1 -->
+    <div style="background:#fff;border-radius:16px;overflow:hidden;border:1px solid #dde6f5;transition:box-shadow .2s,transform .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 36px rgba(26,43,69,.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="background:linear-gradient(135deg,#2e7d32,#43a047);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:10px">
+        <span style="font-size:28px">🌡️</span>
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.7);text-transform:uppercase">Incentivo attivo</div>
+          <div style="color:#fff;font-weight:800;font-size:15px">Conto Termico 3.0</div>
+        </div>
+        <span style="margin-left:auto;background:rgba(255,255,255,.2);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px">ATTIVO</span>
+      </div>
+      <div style="padding:1.25rem 1.5rem">
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:1rem">Il Conto Termico incentiva la sostituzione di impianti di climatizzazione invernale con pompe di calore ad alta efficienza. Contributo fino al <strong>50% della spesa</strong>, erogato dal GSE in rate annuali.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem">
+          <span style="background:#e8f5e9;color:#2e7d32;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">Pompe di calore</span>
+          <span style="background:#e8f5e9;color:#2e7d32;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">Solare termico</span>
+          <span style="background:#e8f5e9;color:#2e7d32;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">Fino al 50%</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:1rem">📅 Aggiornato: Giugno 2025</div>
+        <button onclick="openWA('Ciao, vorrei informazioni sul Conto Termico 3.0')" style="width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:13px;font-weight:700;cursor:pointer">Scopri se ne hai diritto →</button>
+      </div>
+    </div>
+
+    <!-- NEWS 2 -->
+    <div style="background:#fff;border-radius:16px;overflow:hidden;border:1px solid #dde6f5;transition:box-shadow .2s,transform .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 36px rgba(26,43,69,.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="background:linear-gradient(135deg,#1565c0,#1976d2);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:10px">
+        <span style="font-size:28px">🏠</span>
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.7);text-transform:uppercase">Incentivo attivo</div>
+          <div style="color:#fff;font-weight:800;font-size:15px">Detrazione 50% Ristrutturazioni</div>
+        </div>
+        <span style="margin-left:auto;background:rgba(255,255,255,.2);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px">ATTIVO</span>
+      </div>
+      <div style="padding:1.25rem 1.5rem">
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:1rem">La detrazione IRPEF del 50% permette di recuperare metà delle spese per ristrutturazioni edilizie direttamente in dichiarazione dei redditi, in <strong>10 anni</strong>. Valida per impianti elettrici, idraulici e coperture.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem">
+          <span style="background:#e3f2fd;color:#1565c0;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">Impianti elettrici</span>
+          <span style="background:#e3f2fd;color:#1565c0;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">Impianti idraulici</span>
+          <span style="background:#e3f2fd;color:#1565c0;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">Coperture</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:1rem">📅 Aggiornato: Giugno 2025</div>
+        <button onclick="openWA('Ciao, vorrei informazioni sulla detrazione 50% per ristrutturazioni')" style="width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:13px;font-weight:700;cursor:pointer">Scopri se ne hai diritto →</button>
+      </div>
+    </div>
+
+    <!-- NEWS 3 -->
+    <div style="background:#fff;border-radius:16px;overflow:hidden;border:1px solid #dde6f5;transition:box-shadow .2s,transform .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 36px rgba(26,43,69,.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="background:linear-gradient(135deg,#f57c00,#ff9800);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:10px">
+        <span style="font-size:28px">☀️</span>
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.7);text-transform:uppercase">Incentivo attivo</div>
+          <div style="color:#fff;font-weight:800;font-size:15px">Incentivi Fotovoltaico 2026</div>
+        </div>
+        <span style="margin-left:auto;background:rgba(255,255,255,.2);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px">ATTIVO</span>
+      </div>
+      <div style="padding:1.25rem 1.5rem">
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:1rem">Nel 2026 sono disponibili incentivi per l'installazione di impianti fotovoltaici con accumulo BESS tramite il <strong>Ritiro Dedicato GSE</strong> e le <strong>Comunità Energetiche Rinnovabili (CER)</strong>. I bandi regionali del Nord Italia offrono contributi aggiuntivi per privati e imprese.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem">
+          <span style="background:#fff3e0;color:#f57c00;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">Fotovoltaico</span>
+          <span style="background:#fff3e0;color:#f57c00;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">Accumulo BESS</span>
+          <span style="background:#fff3e0;color:#f57c00;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">CER</span>
+          <span style="background:#fff3e0;color:#f57c00;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px">Ritiro Dedicato GSE</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:1rem">📅 Aggiornato: Giugno 2026</div>
+        <button onclick="openWA('Ciao, vorrei informazioni sugli incentivi fotovoltaico 2025')" style="width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:13px;font-weight:700;cursor:pointer">Scopri se ne hai diritto →</button>
+      </div>
+    </div>
+
+    <!-- CARD AGGIUNGI NEWS (placeholder per future notizie) -->
+    <div style="background:#fff;border-radius:16px;overflow:hidden;border:2px dashed #dde6f5;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;min-height:200px">
+      <div style="font-size:40px;margin-bottom:1rem">📰</div>
+      <h4 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:.5rem">Prossimo aggiornamento</h4>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6">Questa sezione viene aggiornata ogni volta che escono nuovi incentivi, bandi o novità del settore.</p>
+      <span style="margin-top:1rem;background:var(--lightblue);color:var(--blue);font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px">In arrivo</span>
+    </div>
+
+  </div>
+</section>
+<section class="manu-section" id="manutenzione">
+  <div class="manu-inner">
+    <div class="manu-left">
+      <div class="section-label" style="color:#5b9bd5">Post-vendita</div>
+      <h2>La nostra <span>assistenza</span><br/>non finisce con l'installazione.</h2>
+      <p>Offriamo contratti di manutenzione programmata e interventi rapidi su tutti gli impianti che realizziamo.</p>
+      <button class="btn-primary" onclick="openWA('Vorrei informazioni sui piani di manutenzione post-vendita')">Scopri i piani manutenzione →</button>
+    </div>
+    <div class="manu-cards">
+      <div class="manu-item"><div class="manu-num">1</div><div><h4>Manutenzione Programmata</h4><p>Controlli periodici pianificati per prevenire guasti e mantenere l'efficienza al massimo.</p></div></div>
+      <div class="manu-item"><div class="manu-num">2</div><div><h4>Intervento Rapido su Guasti</h4><p>Team tecnico dedicato per interventi d'urgenza su impianti elettrici e idraulici.</p></div></div>
+      <div class="manu-item"><div class="manu-num">3</div><div><h4>Verifica e Aggiornamento Normativo</h4><p>Aggiorniamo i tuoi impianti per mantenerli conformi alle normative vigenti (CEI, UNI, D.Lgs 81).</p></div></div>
+      <div class="manu-item"><div class="manu-num">4</div><div><h4>Garanzia Lavori Eseguiti</h4><p>Tutti gli impianti realizzati da PROINCO sono garantiti. Interveniamo senza costi aggiuntivi.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<div class="team-banner">
+  <div class="team-img">👷</div>
+  <div class="team-text">
+    <h3>Tecnici qualificati, divisa riconoscibile.</h3>
+    <p>Il nostro team opera sempre in uniforme aziendale blu navy. Siamo operativi a Santa Lucia di Piave, in tutta la provincia di Treviso, nel <strong>Nord Italia</strong> e a <strong>Roma</strong>.</p>
+    <div class="team-pills">
+      <span class="pill">Abilitazione elettrica</span>
+      <span class="pill">Patentino F-Gas</span>
+      <span class="pill">Cert. fotovoltaico</span>
+      <span class="pill">DPI certificati</span>
+      <span class="pill">📍 Treviso & Nord Italia</span>
+      <span class="pill">📍 Roma</span>
+    </div>
+  </div>
+</div>
+
+<!-- PARTNER -->
+<section style="background:#fff;padding:3rem 2rem" id="partner">
+  <div class="section-label">Collaborazioni certificate</div>
+  <div class="section-title">I nostri partner ufficiali</div>
+  <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem">
+
+    <!-- Ministero dell'Interno -->
+    <div style="background:var(--light);border:1px solid #dde6f5;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;flex:1;min-width:240px;max-width:340px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" style="width:200px;height:80px;display:block">
+        <defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3a8f4a"/><stop offset="100%" stop-color="#1a5c28"/></linearGradient><linearGradient id="mr" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#d4736a"/><stop offset="40%" stop-color="#ffffff" stop-opacity="0.3"/><stop offset="100%" stop-color="#8b1a1a"/></linearGradient></defs>
+        <polygon points="4,8 16,14 16,70 4,76" fill="url(#mg)"/>
+        <rect x="22" y="14" width="16" height="52" rx="1" fill="url(#mr)"/>
+        <text x="48" y="26" font-family="Arial,sans-serif" font-size="7" font-weight="600" letter-spacing="0.8" fill="#444">FORNITORI ED INSTALLATORI UFFICIALI</text>
+        <text x="48" y="46" font-family="Georgia,serif" font-size="17" font-weight="400" fill="#111">MINISTERO</text>
+        <text x="48" y="66" font-family="Georgia,serif" font-size="17" font-weight="400" fill="#111">DELL'INTERNO</text>
+      </svg>
+      <span style="background:var(--lightblue);color:var(--blue);font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px">Fornitori ed Installatori Ufficiali</span>
+    </div>
+
+    <!-- EcoClima -->
+    <div style="background:var(--light);border:1px solid #dde6f5;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;flex:1;min-width:240px;max-width:340px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" style="width:220px;height:65px;display:block">
+        <path fill="#ff883e" d="M28 4 C18 20 40 30 40 46 C40 58 32 65 22 65 C24 66 26 66 28 66 C40 67 50 58 51 46 C53 29 33 22 28 4"/>
+        <path fill="#51ade5" d="M8 42 C3 33 5 22 12 15 C8 20 4 28 4 36 C4 50 12 60 24 63 C16 60 9 52 8 42"/>
+        <path fill="#ffbd59" d="M50 47 C49 38 44 29 38 21 C43 31 45 40 44 48 C42 58 33 65 23 63 C21 62 19 62 18 61 C20 63 23 65 27 66 C39 67 51 58 50 47"/>
+        <path fill="#5ab334" d="M13 54 C10 46 12 36 17 29 C20 25 24 23 28 22 C25 27 23 33 22 39 C21 46 19 52 13 54"/>
+        <text x="60" y="30" font-family="Arial,sans-serif" font-size="18" font-weight="800"><tspan fill="#5ab334">Eco</tspan><tspan fill="#111111">Clima Impianti</tspan></text>
+        <text x="60" y="46" font-family="Arial,sans-serif" font-size="7" letter-spacing="1.5" fill="#51ade5">SOLUZIONI TERMOIDRAULICHE</text>
+        <line x1="60" y1="50" x2="238" y2="50" stroke="#51ade5" stroke-width="0.8"/>
+      </svg>
+      <span style="background:#eaf5e8;color:#2e7d32;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;border:1px solid #b5ddb2">Partner Ufficiale</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="contatti" id="contatti">
+  <div class="section-label">Contattaci</div>
+  <div class="section-title">Richiedi un intervento</div>
+  <div class="section-sub">Sopralluogo gratuito e preventivo senza impegno. Risposta entro 24 ore lavorative.</div>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="c-item"><div class="c-dot">📍</div><div><h4>Sede legale e amministrativa</h4><p>Piazza Meschio, 26/1<br/>31029 Vittorio Veneto (TV)<br/>Italia</p></div></div>
+      <div class="c-item"><div class="c-dot">📞</div><div><h4>Telefono</h4><a href="tel:+393517358959">+39 351 735 8959</a></div></div>
+      <div class="c-item"><div class="c-dot">📧</div><div><h4>Email</h4><a href="mailto:info@proincoenergy.it">info@proincoenergy.it</a></div></div>
+      <div class="c-item"><div class="c-dot">📨</div><div><h4>PEC</h4><a href="mailto:proincoenergysrl@pec.it">proincoenergysrl@pec.it</a></div></div>
+      <div class="c-item"><div class="c-dot">🕐</div><div><h4>Orari</h4><p>Lun–Ven 8:00–18:00</p></div></div>
+      <div class="urgency-box">
+        <h4>🔧 Intervento urgente?</h4>
+        <p>Per guasti elettrici o idraulici urgenti scrivici subito su WhatsApp o chiamaci.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button style="background:var(--wa);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px" onclick="openWA('Ho un guasto urgente, ho bisogno di assistenza')">💬 WhatsApp</button>
+          <a href="tel:+393517358959" style="background:var(--blue);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px">📞 Chiama Ora</a>
+        </div>
+      </div>
+    </div>
+    <form onsubmit="handleForm(event)">
+      <label>Nome e Cognome</label>
+      <input type="text" placeholder="Mario Rossi" required/>
+      <label>Email</label>
+      <input type="email" placeholder="mario@email.it" required/>
+      <label>Telefono</label>
+      <input type="tel" placeholder="+39 000 000 0000"/>
+      <label>Tipo di intervento</label>
+      <select>
+        <option>Impianto Elettrico – nuovo</option>
+        <option>Impianto Elettrico – manutenzione</option>
+        <option>Impianto Idraulico – nuovo</option>
+        <option>Impianto Idraulico – manutenzione</option>
+        <option>Fotovoltaico & BESS</option>
+        <option>Lattoneria & Coperture</option>
+        <option>Pratiche GSE/ENEA/Comune</option>
+        <option>Fondi Europei</option>
+      </select>
+      <label>Urgenza</label>
+      <select>
+        <option>Normale (entro 1 settimana)</option>
+        <option>Prioritario (entro 48 ore)</option>
+        <option>Urgente (oggi/domani)</option>
+      </select>
+      <label>Descrizione</label>
+      <textarea placeholder="Descrivi brevemente la tua esigenza o il problema…" required></textarea>
+      <div class="privacy-check">
+        <input type="checkbox" id="privacy-consent" required/>
+        <label for="privacy-consent" style="text-transform:none;letter-spacing:0;font-weight:400;color:var(--muted)">Ho letto e accetto la <a onclick="openPrivacy()">Politica sulla Privacy</a>. Acconsento al trattamento dei miei dati personali ai sensi dell'art. 13 GDPR 679/2016.</label>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;padding:14px;font-size:15px">Invia Richiesta ›</button>
+      <p id="form-msg" style="text-align:center;font-size:13px;color:#1e6fb5;display:none">✓ Richiesta inviata! Ti contatteremo al più presto.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-col">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:.75rem">
+      <span style="color:#fff;font-weight:700;font-size:15px">PRO.IN.CO. ENERGY SRL</span>
+    </div>
+    <p>Impianti Elettrici · Idraulici<br/>Fotovoltaico · Manutenzione</p>
+    <p style="margin-top:.5rem;font-size:12px">P.IVA: 05448310267<br/>SDI: M5UXCR1</p>
+  </div>
+  <div class="foot-col">
+    <h4>Sede Legale</h4>
+    <p>Piazza Meschio, 26/1</p>
+    <p>31029 Vittorio Veneto (TV)</p>
+    <p>Italia</p>
+    <a href="tel:+393517358959" style="margin-top:.5rem;color:#5b9bd5">+39 351 735 8959</a>
+    <a href="mailto:info@proincoenergy.it" style="color:#5b9bd5">info@proincoenergy.it</a>
+    <a href="mailto:proincoenergysrl@pec.it" style="color:#5b9bd5">proincoenergysrl@pec.it</a>
+  </div>
+  <div class="foot-col">
+    <h4>Link utili</h4>
+    <a href="#servizi">I nostri servizi</a>
+    <a href="#manutenzione">Manutenzione post-vendita</a>
+    <a onclick="openPrivacy()">Politica sulla Privacy</a>
+    <a onclick="openPrivacy()">Cookie Policy</a>
+  </div>
+</footer>
+<div class="foot-bottom">
+  <p>© 2026 PRO.IN.CO. ENERGY SRL – Tutti i diritti riservati</p>
+  <a onclick="openPrivacy()">Privacy Policy</a>
+</div>
+
+<!-- CHATBOT BUTTON -->
+<div id="chat-btn" onclick="toggleChat()" title="Chatta con noi" style="position:fixed;bottom:100px;right:28px;z-index:99999;width:58px;height:58px;background:#2563a8;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,168,.4);font-size:26px">💬</div>
+
+<!-- CHATBOT BOX -->
+<div id="chat-box" style="display:none;position:fixed;bottom:170px;right:28px;z-index:99999;width:360px;background:#fff;border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,.25);overflow:hidden;flex-direction:column;font-family:'Segoe UI',sans-serif">
+  
+  <!-- Header -->
+  <div style="background:linear-gradient(135deg,#1a2b45,#2563a8);padding:14px 18px;display:flex;align-items:center;gap:12px">
+    <div style="width:42px;height:42px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🤖</div>
+    <div style="flex:1">
+      <div style="color:#fff;font-size:14px;font-weight:700">Assistente PRO.IN.CO.</div>
+      <div style="color:#5b9bd5;font-size:11px;display:flex;align-items:center;gap:4px"><span style="width:7px;height:7px;background:#25D366;border-radius:50%;display:inline-block"></span> Online</div>
+    </div>
+    <div onclick="toggleChat()" style="color:#fff;cursor:pointer;font-size:20px;opacity:.8;padding:4px">✕</div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages" style="height:360px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#e5ddd5;background-image:url('data:image/svg+xml,%3Csvg width=\'400\' height=\'400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3C/svg%3E')">
+    <div style="display:flex;align-items:flex-end;gap:8px">
+      <div style="width:28px;height:28px;background:#2563a8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">🤖</div>
+      <div style="max-width:80%">
+        <div style="background:#fff;padding:10px 14px;border-radius:0 12px 12px 12px;font-size:13px;line-height:1.5;color:#1a2233;box-shadow:0 1px 2px rgba(0,0,0,.1)">Ciao! 👋 Sono l'assistente virtuale di <strong>PRO.IN.CO. ENERGY</strong>. Come posso aiutarti?</div>
+        <div style="font-size:10px;color:#888;margin-top:3px;padding-left:4px">${getTime()}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:10px 12px;background:#f0f0f0;display:flex;gap:8px;align-items:flex-end">
+    <textarea id="chat-input" placeholder="Scrivi un messaggio..." rows="1" onkeydown="handleKey(event)" oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px'" style="flex:1;border:none;border-radius:20px;padding:10px 16px;font-size:13px;font-family:inherit;outline:none;resize:none;background:#fff;max-height:100px;line-height:1.4"></textarea>
+    <button onclick="sendMessage()" style="width:42px;height:42px;background:#25D366;color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s" onmouseover="this.style.background='#128C7E'" onmouseout="this.style.background='#25D366'">➤</button>
+  </div>
+</div>
+<div id="wa-btn" onclick="toggleWA()">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.5l5.79-1.519A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 01-5.031-1.369l-.36-.214-3.735.979 1.004-3.648-.234-.374A9.861 9.861 0 012.1 12C2.1 6.533 6.533 2.1 12 2.1c5.467 0 9.9 4.433 9.9 9.9 0 5.467-4.433 9.9-9.9 9.9z"/></svg>
+</div>
+<div id="wa-bubble">
+  <div class="wa-header">
+    <div class="wa-avatar">👷</div>
+    <div class="wa-header-text"><h4>PROINCO ENERGY</h4><p>Rispondiamo in pochi minuti</p></div>
+    <div class="wa-close" onclick="toggleWA()">✕</div>
+  </div>
+  <div class="wa-body">
+    <div class="wa-msg">Ciao! 👋 Sono il team di <strong>PROINCO ENERGY</strong>.<br/>Come possiamo aiutarti? Scegli un argomento o scrivi liberamente.<div class="wa-time">Adesso</div></div>
+  </div>
+  <div class="wa-footer">
+    <p>Seleziona un argomento:</p>
+    <div class="wa-topics">
+      <span class="wa-topic" onclick="openWA('Vorrei un preventivo per un impianto elettrico')">⚡ Impianto Elettrico</span>
+      <span class="wa-topic" onclick="openWA('Vorrei un preventivo per un impianto idraulico')">💧 Impianto Idraulico</span>
+      <span class="wa-topic" onclick="openWA('Ho bisogno di assistenza urgente per un guasto')">🔧 Guasto urgente</span>
+      <span class="wa-topic" onclick="openWA('Vorrei informazioni sul fotovoltaico e accumulo BESS')">☀️ Fotovoltaico</span>
+      <span class="wa-topic" onclick="openWA('Vorrei informazioni sui Fondi Europei disponibili')">🇪🇺 Fondi Europei</span>
+      <span class="wa-topic" onclick="openWA('Vorrei un contratto di manutenzione per i miei impianti')">📋 Manutenzione</span>
+    </div>
+    <button class="wa-send-btn" onclick="openWA('Ciao, vorrei ricevere informazioni sui vostri servizi')">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.5l5.79-1.519A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 01-5.031-1.369l-.36-.214-3.735.979 1.004-3.648-.234-.374A9.861 9.861 0 012.1 12C2.1 6.533 6.533 2.1 12 2.1c5.467 0 9.9 4.433 9.9 9.9 0 5.467-4.433 9.9-9.9 9.9z"/></svg>
+      Apri WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- MODAL ELETTRICO -->
+<div id="modal-elettrico" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div><div class="lbl">I nostri servizi</div><h2>⚡ Impianti Elettrici</h2><p>Civile · Industriale · Pubblica Amministrazione</p></div>
+      <button class="modal-close" onclick="closeElettrico()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <div class="modal-section-title"><div class="modal-section-icon">🏠</div><h3>1. Ambito Civile & Residenziale</h3></div>
+        <div class="svc-block" style="border-left:4px solid var(--blue)">
+          <h4>🏡 Domotica e Smart Home</h4>
+          <p>Trasforma la tua casa in uno spazio intelligente. Con i sistemi domotici che installiamo puoi gestire luci, climatizzazione, tapparelle e sicurezza da smartphone.</p>
+          <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Automazione luci, tapparelle e termostati</li><li><span style="color:var(--blue);font-weight:800">✓</span>Sistemi di controllo da remoto via app</li><li><span style="color:var(--blue);font-weight:800">✓</span>Integrazione con fotovoltaico e accumulo BESS</li><li><span style="color:var(--blue);font-weight:800">✓</span>Risparmio energetico certificato</li></ul>
+          <img src="img/domotica.jpg" alt="Domotica Smart Home" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+        <div class="svc-block" style="border-left:4px solid var(--blue)">
+          <h4>🔧 Ristrutturazioni Elettriche</h4>
+          <p>Il rifacimento dell'impianto elettrico è un investimento nella sicurezza della tua famiglia. Operiamo su appartamenti, villette e abitazioni di ogni dimensione, garantendo installazioni a norma CEI 64-8.</p>
+          <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Rifacimento impianto elettrico completo</li><li><span style="color:var(--blue);font-weight:800">✓</span>Messa a norma impianti esistenti</li><li><span style="color:var(--blue);font-weight:800">✓</span>Installazione punti luce, prese e quadri</li><li><span style="color:var(--blue);font-weight:800">✓</span>Colonnine ricarica veicoli elettrici (EV)</li></ul>
+          <img src="img/ristrutturazione.jpg" alt="Ristrutturazione Elettrica" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+      </div>
+      <div>
+        <div class="modal-section-title"><div class="modal-section-icon">🏭</div><h3>2. Ambito Industriale</h3></div>
+        <div class="svc-block" style="border-left:4px solid var(--blue)">
+          <h4>🗂️ Quadri Elettrici</h4>
+          <p>Il cuore di ogni impianto industriale è il quadro elettrico. Lo progettiamo, cabliamo e installiamo con precisione chirurgica, garantendo affidabilità e sicurezza.</p>
+          <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Progettazione e cablaggio quadri BT e MT</li><li><span style="color:var(--blue);font-weight:800">✓</span>Quadri bordo macchina su misura</li><li><span style="color:var(--blue);font-weight:800">✓</span>Manutenzione programmata e revisione</li><li><span style="color:var(--blue);font-weight:800">✓</span>Certificazione CE e documentazione tecnica</li></ul>
+          <img src="img/quadri.jpg" alt="Quadri Elettrici" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+        <div class="svc-block" style="border-left:4px solid var(--blue)">
+          <h4>💡 Impianti di Potenza e Illuminazione Industriale</h4>
+          <p>Capannoni, stabilimenti produttivi e uffici hanno esigenze specifiche. Realizziamo impianti di potenza e sistemi di illuminazione LED ad alta efficienza.</p>
+          <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Cavi, canali e installazione impianto di potenza</li><li><span style="color:var(--blue);font-weight:800">✓</span>Illuminazione LED per capannoni e stabilimenti</li><li><span style="color:var(--blue);font-weight:800">✓</span>Impianti di emergenza e segnaletica luminosa</li><li><span style="color:var(--blue);font-weight:800">✓</span>Ottimizzazione consumi e power quality</li></ul>
+          <img src="img/illuminazione-ind.jpg" alt="Illuminazione Industriale" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+      </div>
+      <div>
+        <div class="modal-section-title"><div class="modal-section-icon">🛡️</div><h3>3. Sicurezza & Tecnologia</h3></div>
+        <div class="svc-block" style="border-left:4px solid #e63946">
+          <h4>🔥 Sistemi Antincendio</h4>
+          <p>La sicurezza non è optional. Installiamo sistemi di rilevazione incendi a norma UNI EN 54 per abitazioni, aziende e strutture pubbliche.</p>
+          <ul class="svc-ul"><li><span style="color:#e63946;font-weight:800">✓</span>Rilevatori di fumo, calore e gas</li><li><span style="color:#e63946;font-weight:800">✓</span>Centrali antincendio e sirene di allarme</li><li><span style="color:#e63946;font-weight:800">✓</span>Impianti a norma per VVF e certificazione</li><li><span style="color:#e63946;font-weight:800">✓</span>Manutenzione periodica obbligatoria</li></ul>
+          <img src="img/antincendio.jpg" alt="Sistemi Antincendio" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+        <div class="svc-block" style="border-left:4px solid #e63946">
+          <h4>📹 Videosorveglianza e Antifurto</h4>
+          <p>Tieni sotto controllo la tua proprietà ovunque ti trovi. Installiamo sistemi TVCC, antifurto perimetrale e controllo accessi integrati.</p>
+          <ul class="svc-ul"><li><span style="color:#e63946;font-weight:800">✓</span>Sistemi TVCC HD e IP con visione notturna</li><li><span style="color:#e63946;font-weight:800">✓</span>Antifurto perimetrale e volumetrico</li><li><span style="color:#e63946;font-weight:800">✓</span>Controllo accessi con badge e biometrico</li><li><span style="color:#e63946;font-weight:800">✓</span>Monitoraggio remoto da smartphone</li></ul>
+          <img src="img/videosorveglianza.jpg" alt="Videosorveglianza" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+      </div>
+      <div>
+        <div class="modal-section-title"><div class="modal-section-icon">📐</div><h3>4. Servizi Tecnici, Normative e Progettazione</h3></div>
+        <div class="svc-block" style="border-left:4px solid var(--blue)">
+          <h4>📏 Progettazione Impianti Elettrici</h4>
+          <p>Un impianto sicuro inizia da un progetto preciso. Il nostro team tecnico realizza lo studio preliminare, i calcoli elettrici e la documentazione completa.</p>
+          <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Studio di fattibilità e sopralluogo gratuito</li><li><span style="color:var(--blue);font-weight:800">✓</span>Calcoli tecnici e dimensionamento impianto</li><li><span style="color:var(--blue);font-weight:800">✓</span>Planimetrie e schemi unifilari</li><li><span style="color:var(--blue);font-weight:800">✓</span>Coordinamento con altri professionisti</li></ul>
+        </div>
+        <div class="svc-block" style="border-left:4px solid var(--blue)">
+          <h4>📋 Certificazioni e DiCo</h4>
+          <p>La Dichiarazione di Conformità (DiCo) è obbligatoria per legge su ogni impianto elettrico. Rilasciamo tutta la documentazione necessaria.</p>
+          <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Dichiarazione di Conformità (D.M. 37/08)</li><li><span style="color:var(--blue);font-weight:800">✓</span>Verifica e messa a norma impianti esistenti</li><li><span style="color:var(--blue);font-weight:800">✓</span>Perizie tecniche e relazioni di verifica</li><li><span style="color:var(--blue);font-weight:800">✓</span>Supporto per pratiche SUAP e autorizzazioni</li></ul>
+        </div>
+      </div>
+      <div class="modal-cta"><h3>Hai un progetto in mente?</h3><p>Contattaci per un sopralluogo gratuito. Risponderemo entro 24 ore.</p><div class="modal-cta-btns"><button class="btn-primary" onclick="closeElettrico();document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Richiedi Preventivo</button><button class="btn-wa" onclick="openWA('Ciao, ho visto i vostri servizi di impianti elettrici e vorrei un preventivo')">💬 WhatsApp</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL IDRAULICO -->
+<div id="modal-idraulico" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div><div class="lbl">I nostri servizi</div><h2>💧 Impianti Idraulici</h2><p>Civile · Industriale · Pubblica Amministrazione</p></div>
+      <button class="modal-close" onclick="closeIdraulico()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <div class="modal-section-title"><div class="modal-section-icon">🏠</div><h3>1. Impianti Idrosanitari & Bagni</h3></div>
+        <div class="svc-block" style="border-left:4px solid #29aadf">
+          <h4>🚿 Impianti Idrosanitari Completi</h4>
+          <p>Dalla tubazione nascosta ai sanitari in vista: realizziamo impianti idraulici civili a regola d'arte per appartamenti, ville e immobili commerciali.</p>
+          <ul class="svc-ul"><li><span style="color:#29aadf;font-weight:800">✓</span>Rifacimento completo impianto idrico</li><li><span style="color:#29aadf;font-weight:800">✓</span>Installazione sanitari, docce e vasche</li><li><span style="color:#29aadf;font-weight:800">✓</span>Scarichi, sifoni e colonne di ventilazione</li><li><span style="color:#29aadf;font-weight:800">✓</span>Ristrutturazione bagni chiavi in mano</li></ul>
+          <img src="img/bagno.jpg" alt="Bagno" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+        <div class="svc-block" style="border-left:4px solid #29aadf">
+          <h4>♨️ Sistemi Acqua Calda Sanitaria</h4>
+          <p>Acqua calda sempre disponibile, con i minori consumi possibili. Installiamo boiler, scaldacqua a pompa di calore e sistemi solari termici integrati.</p>
+          <ul class="svc-ul"><li><span style="color:#29aadf;font-weight:800">✓</span>Installazione boiler e scaldacqua</li><li><span style="color:#29aadf;font-weight:800">✓</span>Pompe di calore per ACS ad alta efficienza</li><li><span style="color:#29aadf;font-weight:800">✓</span>Integrazione con impianto solare termico</li><li><span style="color:#29aadf;font-weight:800">✓</span>Manutenzione e sostituzione apparecchi</li></ul>
+          <img src="img/acs.jpg" alt="ACS" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+      </div>
+      <div>
+        <div class="modal-section-title"><div class="modal-section-icon">🌡️</div><h3>2. Riscaldamento & Raffrescamento</h3></div>
+        <div class="svc-block" style="border-left:4px solid #29aadf">
+          <h4>🏡 Riscaldamento a Pavimento e Radiatori</h4>
+          <p>Il riscaldamento a pavimento è la soluzione più confortevole ed efficiente. Offriamo anche impianti a radiatori e fan-coil.</p>
+          <ul class="svc-ul"><li><span style="color:#29aadf;font-weight:800">✓</span>Pannelli radianti a pavimento</li><li><span style="color:#29aadf;font-weight:800">✓</span>Impianti a radiatori in acciaio e alluminio</li><li><span style="color:#29aadf;font-weight:800">✓</span>Fan-coil per riscaldamento e raffrescamento</li><li><span style="color:#29aadf;font-weight:800">✓</span>Bilanciamento e collaudo impianto</li></ul>
+          <img src="img/pavimento.jpg" alt="Riscaldamento a Pavimento" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+        <div class="svc-block" style="border-left:4px solid #29aadf">
+          <h4>🔄 Pompe di Calore e Caldaie a Condensazione</h4>
+          <p>Sostituisci il vecchio generatore con una pompa di calore o una caldaia a condensazione. Gestiamo anche gli incentivi statali.</p>
+          <ul class="svc-ul"><li><span style="color:#29aadf;font-weight:800">✓</span>Installazione pompe di calore aria-acqua e geotermiche</li><li><span style="color:#29aadf;font-weight:800">✓</span>Caldaie a condensazione a gas e a pellet</li><li><span style="color:#29aadf;font-weight:800">✓</span>Dismissione vecchia caldaia e smaltimento</li><li><span style="color:#29aadf;font-weight:800">✓</span>Pratiche Conto Termico e detrazioni 50%</li></ul>
+          <img src="img/pompa-calore.jpg" alt="Pompa di Calore" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+      </div>
+      <div>
+        <div class="modal-section-title"><div class="modal-section-icon">🏭</div><h3>3. Impianti Idraulici Industriali</h3></div>
+        <div class="svc-block" style="border-left:4px solid #29aadf">
+          <h4>🏗️ Impianti Industriali e Trattamento Acque</h4>
+          <p>Per capannoni, stabilimenti e strutture produttive realizziamo impianti idraulici ad alta portata e sistemi di trattamento acque.</p>
+          <ul class="svc-ul"><li><span style="color:#29aadf;font-weight:800">✓</span>Reti di distribuzione acqua fredda e calda</li><li><span style="color:#29aadf;font-weight:800">✓</span>Sistemi di trattamento e filtrazione acque</li><li><span style="color:#29aadf;font-weight:800">✓</span>Addolcitori e impianti anticalcare</li><li><span style="color:#29aadf;font-weight:800">✓</span>Manutenzione programmata impianti industriali</li></ul>
+          <img src="img/idraulica-industriale.jpg" alt="Idraulica Industriale" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+        </div>
+      </div>
+      <div class="modal-cta"><h3>Hai bisogno di un impianto idraulico?</h3><p>Sopralluogo gratuito e preventivo senza impegno. Risposta entro 24 ore.</p><div class="modal-cta-btns"><button class="btn-primary" onclick="closeIdraulico();document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Richiedi Preventivo</button><button class="btn-wa" onclick="openWA('Ciao, ho visto i vostri servizi di impianti idraulici e vorrei un preventivo')">💬 WhatsApp</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL FOTOVOLTAICO -->
+<div id="modal-fotovoltaico" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div><div class="lbl">I nostri servizi</div><h2>☀️ Fotovoltaico, BESS & Domotica</h2><p>Residenziale · Aziendale · Industriale</p></div>
+      <button class="modal-close" onclick="closeFotovoltaico()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="svc-block" style="border-left:4px solid #f5a623">
+        <h4>⚡ Impianti Fotovoltaici su Misura</h4>
+        <p>Smetti di pagare bollette salatissime. Progettiamo e installiamo impianti fotovoltaici per abitazioni, aziende e capannoni industriali, dimensionati perfettamente sui tuoi consumi reali.</p>
+        <ul class="svc-ul"><li><span style="color:#f5a623;font-weight:800">✓</span>Sopralluogo e studio di producibilità gratuito</li><li><span style="color:#f5a623;font-weight:800">✓</span>Pannelli TOPCon e HJT di ultima generazione (efficienza fino al 23%)</li><li><span style="color:#f5a623;font-weight:800">✓</span>Impianti residenziali, commerciali e industriali</li><li><span style="color:#f5a623;font-weight:800">✓</span>Pratiche GSE e allaccio rete inclusi</li></ul>
+        <img src="img/fotovoltaico.jpg" alt="Fotovoltaico" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #f5a623">
+        <h4>🔋 Sistemi di Accumulo BESS</h4>
+        <p>Con un sistema di accumulo BESS puoi conservare l'energia prodotta di giorno e usarla di notte. Indipendenza energetica reale, disponibile h24.</p>
+        <ul class="svc-ul"><li><span style="color:#f5a623;font-weight:800">✓</span>Installazione batterie litio di ultima generazione</li><li><span style="color:#f5a623;font-weight:800">✓</span>Integrazione con impianto fotovoltaico esistente</li><li><span style="color:#f5a623;font-weight:800">✓</span>Gestione intelligente dei flussi energetici</li><li><span style="color:#f5a623;font-weight:800">✓</span>Monitoraggio remoto in tempo reale</li></ul>
+        <img src="img/bess.jpg" alt="BESS" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #f5a623">
+        <h4>🏡 Domotica & Gestione Intelligente Consumi</h4>
+        <p>Integriamo il tuo impianto fotovoltaico con un sistema domotico intelligente che ottimizza automaticamente i consumi.</p>
+        <ul class="svc-ul"><li><span style="color:#f5a623;font-weight:800">✓</span>Gateway domotico integrato con fotovoltaico</li><li><span style="color:#f5a623;font-weight:800">✓</span>Automazione carichi domestici e industriali</li><li><span style="color:#f5a623;font-weight:800">✓</span>Ricarica EV ottimizzata con energia solare</li><li><span style="color:#f5a623;font-weight:800">✓</span>App di monitoraggio produzione e consumi</li></ul>
+        <img src="img/domotica-consumi.jpg" alt="Domotica Consumi" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+      </div>
+      <div class="modal-cta"><h3>Inizia a produrre la tua energia</h3><p>Sopralluogo e studio di producibilità gratuiti. Gestiamo anche tutti gli incentivi.</p><div class="modal-cta-btns"><button class="btn-primary" onclick="closeFotovoltaico();document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Richiedi Preventivo</button><button class="btn-wa" onclick="openWA('Ciao, sono interessato a un impianto fotovoltaico con accumulo BESS')">💬 WhatsApp</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL LATTONERIA -->
+<div id="modal-lattoneria" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div><div class="lbl">I nostri servizi</div><h2>🏗️ Lattoneria & Coperture</h2><p>Residenziale · Commerciale · Industriale</p></div>
+      <button class="modal-close" onclick="closeLattoneria()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="svc-block" style="border-left:4px solid #5a6a82">
+        <h4>🏠 Rifacimento Coperture</h4>
+        <p>Il tetto è la prima difesa della tua abitazione. Rifacciamo coperture piane e inclinate con materiali di prima qualità.</p>
+        <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Coperture in tegole, coppi e lamiera</li><li><span style="color:var(--blue);font-weight:800">✓</span>Tetti piani con guaine impermeabilizzanti</li><li><span style="color:var(--blue);font-weight:800">✓</span>Coibentazione e isolamento termico</li><li><span style="color:var(--blue);font-weight:800">✓</span>Lucernari e finestre da tetto Velux</li></ul>
+        <img src="img/coperture.jpg" alt="Coperture" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #5a6a82">
+        <h4>💧 Grondaie, Pluviali e Lattoneria</h4>
+        <p>Una grondaia mal funzionante può danneggiare seriamente la struttura dell'edificio. Installiamo e sostituiamo grondaie in rame, alluminio e zinco titano.</p>
+        <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Grondaie in rame, alluminio e zinco titano</li><li><span style="color:var(--blue);font-weight:800">✓</span>Pluviali e raccordi su misura</li><li><span style="color:var(--blue);font-weight:800">✓</span>Converse, scossaline e manti di protezione</li><li><span style="color:var(--blue);font-weight:800">✓</span>Manutenzione e pulizia periodica</li></ul>
+        <img src="img/pluviali.jpg" alt="Pluviali" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #5a6a82">
+        <h4>🛡️ Impermeabilizzazioni e Guaine</h4>
+        <p>L'umidità è il nemico silenzioso degli edifici. Interveniamo con sistemi di impermeabilizzazione professionali su terrazze, balconi e lastrici solari.</p>
+        <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Guaine bituminose e in PVC su terrazze</li><li><span style="color:var(--blue);font-weight:800">✓</span>Trattamenti impermeabilizzanti liquidi</li><li><span style="color:var(--blue);font-weight:800">✓</span>Risanamento infiltrazioni e umidità</li><li><span style="color:var(--blue);font-weight:800">✓</span>Garanzia impermeabilità pluriennale</li></ul>
+        <img src="img/guaina.jpg" alt="Guaina" style="width:100%;border-radius:10px;margin-top:.75rem;display:block"/>
+      </div>
+      <div class="modal-cta"><h3>Il tuo tetto è al sicuro?</h3><p>Richiedi un sopralluogo gratuito. Interveniamo in tutto il Nord Italia.</p><div class="modal-cta-btns"><button class="btn-primary" onclick="closeLattoneria();document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Richiedi Preventivo</button><button class="btn-wa" onclick="openWA('Ciao, ho bisogno di un preventivo per coperture e lattoneria')">💬 WhatsApp</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PRATICHE -->
+<div id="modal-pratiche" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div><div class="lbl">I nostri servizi</div><h2>📋 Pratiche GSE, ENEA & Comune</h2><p>La burocrazia la gestiamo noi — tu pensi al tuo progetto</p></div>
+      <button class="modal-close" onclick="closePratiche()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="svc-block" style="border-left:4px solid var(--blue)">
+        <h4>⚡ Pratiche GSE</h4>
+        <p>Per accedere agli incentivi del Conto Energia e allo Scambio Sul Posto è obbligatorio presentare le pratiche al GSE. Le gestiamo interamente noi.</p>
+        <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Richiesta connessione rete GSE (SSP, RID)</li><li><span style="color:var(--blue);font-weight:800">✓</span>Pratiche Conto Energia e incentivi fotovoltaico</li><li><span style="color:var(--blue);font-weight:800">✓</span>Comunicazioni variazioni impianto</li><li><span style="color:var(--blue);font-weight:800">✓</span>Gestione rapporti con il distributore locale</li></ul>
+      </div>
+      <div class="svc-block" style="border-left:4px solid var(--blue)">
+        <h4>🏛️ Comunicazioni ENEA</h4>
+        <p>Per usufruire delle detrazioni fiscali del 50% è necessario inviare la comunicazione all'ENEA entro i termini di legge. Ci pensiamo noi.</p>
+        <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>Comunicazione ENEA per detrazioni 50%</li><li><span style="color:var(--blue);font-weight:800">✓</span>Asseverazioni tecniche e schede descrittive</li><li><span style="color:var(--blue);font-weight:800">✓</span>Documentazione completa per la dichiarazione dei redditi</li></ul>
+      </div>
+      <div class="svc-block" style="border-left:4px solid var(--blue)">
+        <h4>🏛️ Pratiche Edilizie al Comune (CILA, SCIA)</h4>
+        <p>Gestiamo CILA, SCIA e tutte le comunicazioni necessarie, coordinandoci con il tuo tecnico di fiducia o occupandoci di tutto internamente.</p>
+        <ul class="svc-ul"><li><span style="color:var(--blue);font-weight:800">✓</span>CILA e SCIA per impianti e ristrutturazioni</li><li><span style="color:var(--blue);font-weight:800">✓</span>Aggiornamento catastale dopo lavori</li><li><span style="color:var(--blue);font-weight:800">✓</span>Dichiarazioni di conformità impianti (DiCo)</li><li><span style="color:var(--blue);font-weight:800">✓</span>Rapporti con enti e sportelli SUAP</li></ul>
+      </div>
+      <div class="modal-cta"><h3>La burocrazia non ti spaventa più</h3><p>Gestiamo tutte le pratiche al posto tuo.</p><div class="modal-cta-btns"><button class="btn-primary" onclick="closePratiche();document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Contattaci</button><button class="btn-wa" onclick="openWA('Ciao, ho bisogno di aiuto con le pratiche GSE/ENEA/Comune')">💬 WhatsApp</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL FONDI -->
+<div id="modal-fondi" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div><div class="lbl">I nostri servizi</div><h2>🇪🇺 Fondi Europei & Incentivi</h2><p>Riduci il costo del tuo investimento — ti guidiamo noi</p></div>
+      <button class="modal-close" onclick="closeFondi()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="background:#fff8ec;border:1.5px solid #f5d08a;border-radius:14px;padding:1.25rem 1.5rem">
+        <p style="font-size:.9rem;color:#7a5a00;line-height:1.7;margin:0">💡 <strong>Lo sapevi?</strong> La maggior parte dei lavori di efficienza energetica, impianti elettrici e idraulici beneficia di incentivi statali che possono ridurre il costo fino al 50%. Molti clienti non li richiedono semplicemente perché non sanno come fare. <strong>Noi ci occupiamo di tutto.</strong></p>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #e65100">
+        <h4>🏨 Hotel, B&B e Strutture Ricettive</h4>
+        <p>Le strutture ricettive possono accedere a contributi specifici per la riqualificazione energetica, l'installazione di fotovoltaico e il miglioramento degli impianti tecnologici.</p>
+        <ul class="svc-ul"><li><span style="color:#e65100;font-weight:800">✓</span>Contributi per efficienza energetica alberghi</li><li><span style="color:#e65100;font-weight:800">✓</span>Fotovoltaico e BESS per strutture ricettive</li><li><span style="color:#e65100;font-weight:800">✓</span>Domotica e automazione per risparmio energetico</li><li><span style="color:#e65100;font-weight:800">✓</span>Bandi Turismo Sostenibile – Ministero del Turismo</li></ul>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #1565c0">
+        <h4>🏛️ Pubblica Amministrazione & Enti Locali</h4>
+        <p>Comuni, scuole, ospedali e altri enti pubblici hanno accesso a finanziamenti dedicati per la riqualificazione degli edifici pubblici e l'illuminazione LED.</p>
+        <ul class="svc-ul"><li><span style="color:#1565c0;font-weight:800">✓</span>Efficientamento energetico edifici pubblici</li><li><span style="color:#1565c0;font-weight:800">✓</span>Illuminazione pubblica LED e smart lighting</li><li><span style="color:#1565c0;font-weight:800">✓</span>Fotovoltaico su edifici scolastici e municipali</li><li><span style="color:#1565c0;font-weight:800">✓</span>Finanziamenti dedicati PA – fondi strutturali europei</li></ul>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #2e7d32">
+        <h4>🏭 Imprese, PMI e Capannoni Industriali</h4>
+        <p>Le aziende del Nord Italia possono accedere a incentivi Sabatini, crediti d'imposta e bandi regionali per l'ammodernamento degli impianti produttivi.</p>
+        <ul class="svc-ul"><li><span style="color:#2e7d32;font-weight:800">✓</span>Nuova Sabatini – finanziamenti agevolati macchinari</li><li><span style="color:#2e7d32;font-weight:800">✓</span>Credito d'imposta per investimenti energetici</li><li><span style="color:#2e7d32;font-weight:800">✓</span>Fotovoltaico industriale con accumulo BESS</li><li><span style="color:#2e7d32;font-weight:800">✓</span>Bandi Confartigianato e CNA per artigiani</li></ul>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #2e7d32">
+        <h4>🌡️ Conto Termico 3.0</h4>
+        <p>Il Conto Termico è l'incentivo statale più conveniente per chi sostituisce caldaie obsolete con pompe di calore o installa pannelli solari termici.</p>
+        <ul class="svc-ul"><li><span style="color:#2e7d32;font-weight:800">✓</span>Sostituzione generatore di calore (caldaia → pompa di calore)</li><li><span style="color:#2e7d32;font-weight:800">✓</span>Installazione pannelli solari termici</li><li><span style="color:#2e7d32;font-weight:800">✓</span>Contributo fino al 50% della spesa sostenuta</li><li><span style="color:#2e7d32;font-weight:800">✓</span>Gestione pratica GSE inclusa</li></ul>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #1565c0">
+        <h4>🏠 Detrazione Fiscale 50%</h4>
+        <p>La detrazione IRPEF del 50% ti permette di recuperare metà delle spese sostenute per ristrutturazioni edilizie direttamente sulla dichiarazione dei redditi, in 10 anni.</p>
+        <ul class="svc-ul"><li><span style="color:#1565c0;font-weight:800">✓</span>Detrazione 50% per ristrutturazioni edilizie</li><li><span style="color:#1565c0;font-weight:800">✓</span>Valida per impianti elettrici, idraulici e coperture</li><li><span style="color:#1565c0;font-weight:800">✓</span>Comunicazioni ENEA e documentazione incluse</li><li><span style="color:#1565c0;font-weight:800">✓</span>Valida per privati e condomini</li></ul>
+      </div>
+      <div class="svc-block" style="border-left:4px solid #6a1b9a">
+        <h4>📍 Bandi Regionali – Sfrutta gli Incentivi della Tua Regione</h4>
+        <p>Monitoriamo costantemente i bandi attivi in tutto il Nord Italia — Veneto, Lombardia, Friuli-Venezia Giulia, Trentino-Alto Adige, Piemonte, Liguria ed Emilia-Romagna. <strong>Non perdere i contributi a cui hai diritto: spesso i fondi si esauriscono rapidamente.</strong></p>
+        <ul class="svc-ul"><li><span style="color:#6a1b9a;font-weight:800">✓</span>Bandi regionali per fotovoltaico e accumulo</li><li><span style="color:#6a1b9a;font-weight:800">✓</span>Contributi per efficienza energetica edifici residenziali</li><li><span style="color:#6a1b9a;font-weight:800">✓</span>Incentivi per PMI e imprese artigiane</li><li><span style="color:#6a1b9a;font-weight:800">✓</span>Comunità Energetiche Rinnovabili (CER)</li><li><span style="color:#6a1b9a;font-weight:800">✓</span>Monitoraggio continuo bandi attivi — ti avvisiamo noi</li></ul>
+      </div>
+      <div class="modal-cta"><h3>Scopri a quali incentivi hai diritto</h3><p>Consulenza gratuita e senza impegno.</p><div class="modal-cta-btns"><button class="btn-primary" onclick="closeFondi();document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Consulenza Gratuita</button><button class="btn-wa" onclick="openWA('Ciao, vorrei sapere a quali fondi europei o incentivi ho diritto per i miei lavori')">💬 WhatsApp</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRIVACY MODAL -->
+<div id="privacy-overlay" onclick="closePrivacyOutside(event)">
+  <div id="privacy-modal">
+    <div class="priv-header"><h2>🔒 Politica sulla Privacy – PROINCO ENERGY SRL</h2><span class="priv-close" onclick="closePrivacy()">✕</span></div>
+    <div class="priv-body">
+      <h3>1. Titolare del Trattamento</h3><p><strong>PRO.IN.CO. ENERGY SRL</strong><br/>Sede legale e amministrativa: Piazza Meschio, 26/1 – 31029 Vittorio Veneto (TV)<br/>P.IVA / C.F.: <strong>05448310267</strong> · Codice SDI: <strong>M5UXCR1</strong><br/>Tel: <strong>+39 351 735 8959</strong> · Email: <strong>info@proincoenergy.it</strong> · PEC: <strong>proincoenergysrl@pec.it</strong></p>
+      <h3>2. Tipologia di dati raccolti</h3><p>Raccogliamo: dati identificativi (nome, cognome), dati di contatto (email, telefono), dati forniti tramite il modulo di contatto, dati di navigazione tramite cookie tecnici.</p>
+      <h3>3. Finalità e base giuridica</h3><ul><li><strong>Gestione richieste e preventivi</strong> – consenso (art. 6.1.a GDPR)</li><li><strong>Esecuzione contratti</strong> – art. 6.1.b GDPR</li><li><strong>Obblighi di legge</strong> – art. 6.1.c GDPR</li></ul>
+      <h3>4. Conservazione dei dati</h3><p>I dati sono conservati per il tempo strettamente necessario e comunque non oltre i termini di legge (max 10 anni per dati contabili e fiscali).</p>
+      <h3>5. Diritti dell'interessato (artt. 15-22 GDPR)</h3><ul><li>Accesso, rettifica, cancellazione, limitazione, opposizione, portabilità</li><li>Revoca del consenso in qualsiasi momento</li></ul><p>Per esercitare i propri diritti: <strong>info@proincoenergy.it</strong></p>
+      <h3>6. Cookie</h3><p>Il sito utilizza esclusivamente cookie tecnici necessari al funzionamento.</p>
+      <h3>7. Reclami</h3><p>Hai il diritto di proporre reclamo al Garante: <strong>www.garanteprivacy.it</strong></p>
+      <h3>8. Aggiornamenti</h3><p>Ultimo aggiornamento: <strong>gennaio 2025</strong>.</p>
+    </div>
+    <div class="priv-footer"><button class="btn-primary" onclick="closePrivacy()">Ho capito, chiudi</button></div>
+  </div>
+</div>
+
+<script>
+var WA_NUMBER='393517358959';
+var CHAT_HISTORY=[];
+var SYSTEM_PROMPT=`Sei l'assistente virtuale di PRO.IN.CO. ENERGY SRL, un'azienda specializzata in impianti elettrici, idraulici, fotovoltaico, lattoneria e coperture, con sede a Vittorio Veneto (TV).
+
+INFORMAZIONI AZIENDA:
+- Denominazione: PRO.IN.CO. ENERGY SRL
+- Sede: Piazza Meschio 26/1, 31029 Vittorio Veneto (TV)
+- Telefono: +39 351 735 8959
+- Email: info@proincoenergy.it
+- PEC: proincoenergysrl@pec.it
+- Zona operativa: Nord Italia (Veneto, Lombardia, Friuli, Trentino, Piemonte, Liguria, Emilia-Romagna) e Roma
+
+SERVIZI PRINCIPALI:
+1. IMPIANTI ELETTRICI (civile, industriale, PA):
+   - Domotica e Smart Home
+   - Ristrutturazioni elettriche e messa a norma CEI 64-8
+   - Quadri elettrici (progettazione, cablaggio, bordo macchina)
+   - Illuminazione industriale LED
+   - Sistemi antincendio (UNI EN 54)
+   - Videosorveglianza TVCC e antifurto
+   - Progettazione impianti e certificazioni DiCo (D.M. 37/08)
+   - Colonnine ricarica EV
+
+2. IMPIANTI IDRAULICI (civile, industriale):
+   - Impianti idrosanitari completi e ristrutturazione bagni
+   - Acqua calda sanitaria (boiler, pompe di calore ACS)
+   - Riscaldamento a pavimento e radiatori
+   - Pompe di calore aria-acqua e caldaie a condensazione
+   - Trattamento acque, addolcitori, filtri
+   - Impianti industriali
+
+3. FOTOVOLTAICO, BESS & DOMOTICA:
+   - Impianti fotovoltaici residenziali e industriali
+   - Pannelli TOPCon e HJT (efficienza fino al 23%)
+   - Sistemi accumulo BESS
+   - Domotica integrata e monitoraggio consumi
+   - Pratiche GSE e allaccio rete inclusi
+
+4. LATTONERIA & COPERTURE:
+   - Rifacimento coperture piane e inclinate
+   - Grondaie in rame, alluminio, zinco titano
+   - Impermeabilizzazioni e guaine
+   - Lucernari e finestre da tetto
+
+5. PRATICHE BUROCRATICHE:
+   - GSE (Scambio Sul Posto, Conto Energia)
+   - ENEA (detrazioni 50%)
+   - CILA, SCIA, pratiche comunali
+   - Dichiarazioni di conformità (DiCo)
+
+6. FONDI EUROPEI & INCENTIVI:
+   - Conto Termico 3.0
+   - Detrazione fiscale 50%
+   - Bandi regionali Nord Italia
+   - Incentivi per Hotel, B&B, PA, PMI, privati e condomini
+   - Comunità Energetiche Rinnovabili (CER)
+
+MANUTENZIONE POST-VENDITA:
+- Contratti manutenzione programmata
+- Interventi rapidi su guasti
+- Verifica normativa (CEI, UNI, D.Lgs 81)
+- Garanzia su tutti i lavori eseguiti
+
+QUALIFICHE TEAM:
+- Abilitazione elettrica
+- Patentino F-Gas
+- Certificazione fotovoltaico
+- DPI certificati
+- Fornitori ed Installatori Ufficiali Ministero dell'Interno
+- Partner ufficiale EcoClima Impianti
+
+ISTRUZIONI COMPORTAMENTO:
+- Rispondi sempre in italiano
+- Sii professionale, cordiale e conciso
+- Per richieste di preventivo invita a chiamare il +39 351 735 8959 o scrivere su WhatsApp
+- Per emergenze (guasti) suggerisci di chiamare subito
+- Non inventare prezzi specifici — di' che dipende dal sopralluogo gratuito
+- Se non sai rispondere, invita a contattare direttamente l'azienda
+- Cerca di raccogliere nome e contatto del cliente interessato`;
+
+function toggleChat(){
+  var box=document.getElementById('chat-box');
+  if(box.style.display==='flex'){
+    box.style.display='none';
+  } else {
+    box.style.display='flex';
+    document.getElementById('chat-input').focus();
+  }
+}
+
+function handleKey(e){
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}
+}
+
+async function sendMessage(){
+  var input=document.getElementById('chat-input');
+  var text=input.value.trim();
+  if(!text)return;
+  input.value='';
+  addMsg(text,'user');
+  CHAT_HISTORY.push({role:'user',content:text});
+  var typing=addMsg('Sto scrivendo...','typing');
+  try{
+    var res=await fetch('/api/chat',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({messages:CHAT_HISTORY})
+    });
+    var data=await res.json();
+    var reply=data.content[0].text;
+    typing.remove();
+    addMsg(reply,'bot');
+    CHAT_HISTORY.push({role:'assistant',content:reply});
+  }catch(err){
+    typing.remove();
+    addMsg('Mi dispiace, si è verificato un errore. Contattaci direttamente al +39 351 735 8959.','bot');
+  }
+}
+
+function addMsg(text,type){
+  var msgs=document.getElementById('chat-messages');
+  var div=document.createElement('div');
+  div.className='msg '+type;
+  div.innerHTML=text.replace(/\n/g,'<br>');
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+  return div;
+}
+function toggleWA(){document.getElementById('wa-bubble').classList.toggle('open')}
+function openWA(msg){window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank')}
+function openPrivacy(){document.getElementById('privacy-overlay').classList.add('open')}
+function closePrivacy(){document.getElementById('privacy-overlay').classList.remove('open')}
+function closePrivacyOutside(e){if(e.target===document.getElementById('privacy-overlay'))closePrivacy()}
+function handleForm(e){e.preventDefault();var m=document.getElementById('form-msg');m.style.display='block';e.target.reset();setTimeout(()=>m.style.display='none',5000)}
+function openElettrico(){document.getElementById('modal-elettrico').style.display='block';document.body.style.overflow='hidden'}
+function closeElettrico(){document.getElementById('modal-elettrico').style.display='none';document.body.style.overflow=''}
+function openIdraulico(){document.getElementById('modal-idraulico').style.display='block';document.body.style.overflow='hidden'}
+function closeIdraulico(){document.getElementById('modal-idraulico').style.display='none';document.body.style.overflow=''}
+function openFotovoltaico(){document.getElementById('modal-fotovoltaico').style.display='block';document.body.style.overflow='hidden'}
+function closeFotovoltaico(){document.getElementById('modal-fotovoltaico').style.display='none';document.body.style.overflow=''}
+function openLattoneria(){document.getElementById('modal-lattoneria').style.display='block';document.body.style.overflow='hidden'}
+function closeLattoneria(){document.getElementById('modal-lattoneria').style.display='none';document.body.style.overflow=''}
+function openPratiche(){document.getElementById('modal-pratiche').style.display='block';document.body.style.overflow='hidden'}
+function closePratiche(){document.getElementById('modal-pratiche').style.display='none';document.body.style.overflow=''}
+function openFondi(){document.getElementById('modal-fondi').style.display='block';document.body.style.overflow='hidden'}
+function closeFondi(){document.getElementById('modal-fondi').style.display='none';document.body.style.overflow=''}
+</script>
+</body>
+</html>
