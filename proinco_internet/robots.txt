@@ -1,0 +1,33 @@
+# robots.txt - PRO.IN.CO. ENERGY SRL
+# Consente l'accesso ai crawler AI e ai motori di ricerca
+
+User-agent: *
+Allow: /
+
+# Crawler AI esplicitamente ammessi
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
